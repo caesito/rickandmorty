@@ -1,0 +1,41 @@
+<app-content-form></app-content-form>
+<mat-tab-group mat-align-tabs="center" id="matbar">
+    <mat-tab label="Personagens">
+        <div fxLayout="row wrap" fxLayoutAlign="center center" style="padding: 2%;" >
+            <ng-container  *ngFor="let character of characterResults" style="margin: 0.5%;">
+                <mat-card  class="mat-card-content" fxFlex="0 1 calc(33.3% - 11px)"
+                fxFlex.lt-md="0 1 calc(50% - 11px)"
+                fxFlex.lt-sm="100%">
+                    
+                    <img class="image" src={{character.image}}>
+                    <mat-card-title class="mat-card-title-content">
+                        <p fxLayoutAling="start center"><b>Nome : {{character.name}}</b> </p>
+                        <p fxLayoutAling="start center"><b>Status : {{character.status}}</b> </p>
+                        <p fxLayoutAling="start center"><b>Especie : {{character.species}}</b> </p>
+                        <p fxLayoutAling="start center"><b>Genero : {{character.gender}}</b> </p>
+                        <ng-container *ngFor="let name of character.origin | keyvalue" >
+                            
+                            <p *ngIf="name.key=='name'" fxLayoutAling="start center"><b>Origem : {{name.value}}</b> </p>
+                            
+                        </ng-container> 
+                        <ng-container *ngFor="let name of character.location | keyvalue" >
+                            
+                            <p *ngIf="name.key=='name'" fxLayoutAling="start center"><b>Utimo local visto : {{name.value}}</b> </p>
+                            
+                        </ng-container>
+                           
+                    </mat-card-title>
+                  </mat-card>
+                  
+            </ng-container> 
+
+        </div>
+    </mat-tab>
+  </mat-tab-group>
+
+<mat-paginator [length]="this.count"
+              [pageSize]="20"
+              [pageSizeOptions]="[20]"
+              aria-label="Select page"
+              (page)="onClickChangePage($event)">
+</mat-paginator>

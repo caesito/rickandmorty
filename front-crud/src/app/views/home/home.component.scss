@@ -1,0 +1,27 @@
+.example-spacer {
+  position: relative;
+    flex: 1 1 auto;
+  }
+
+#mattoolbar {
+
+  background-image: url(https://www.toppapeldeparede.com.br/wp-content/uploads/2021/04/Wallpaper-Rick-and-Morty-%E2%8B%86.jpg);
+  height: 350px;
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  position: absolute;
+  top: 25%;
+  justify-items: flex-end;
+ 
+ 
+ 
+}
+
+.btnsearch {
+
+  position: absolute;
+  margin:10px
+}
