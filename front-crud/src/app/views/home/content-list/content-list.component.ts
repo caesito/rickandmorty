@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { keyValuesToMap } from '@angular/flex-layout/extended/style/style-transforms';
 import { PageEvent } from '@angular/material/paginator';
 import { ResponsePageable } from 'src/app/shared/model/responsePageable.model';
 import { Serie } from 'src/app/shared/model/serie.model';
 import { SerieService } from 'src/app/shared/service/serie.service';
-import { ContentFormComponent } from '../content-form/content-form.component';
 
 
 @Component({
@@ -45,7 +43,6 @@ export class ContentListComponent implements OnInit {
         this.previusUrl = data.info.prev;
         this.npage = data.info.pages;
         this.count = data.info.count;
-        console.log(data.results);
       }
     );
   }
@@ -65,12 +62,10 @@ export class ContentListComponent implements OnInit {
     this.urlSingle = '';
     this.urlSingle= this.urlApiCharacter + '/?name=' + name;
     this.getCharacter(this.urlSingle)
-
   }
 
   onSubmit(form: any): void {
-    this.getSingleCharacter(form.value.name);
-    
+    this.getSingleCharacter(form.value.name); 
   }
 
 }
